@@ -15,16 +15,20 @@ class CelestialBodies(db.Model):
     name = db.Column(db.String())
     image = db.Column(db.String())
     celestial_body_type = db.Column(db.String())
-    gravity = db.Column(db.Integer())
+    gravity = db.Column(db.Float())
+    planet_day = db.Column(db.Float())
+    planet_year = db.Column(db.Float())
     landmark = db.relationship('Landmark', backref='celestial_bodies', lazy=True)
     user = db.relationship('User', secondary=voyages, back_populates='user')
 
 
-    def __init__(self, name, image, celestial_body_type, gravity):
+    def __init__(self, name, image, celestial_body_type, gravity, planet_day, planet_year):
       self.name = name
       self.image = image
       self.celestial_body_type = celestial_body_type
       self.gravity = gravity
+      self.planet_day = planet_day
+      self.planet_year = planet_year
 
     def __repr__(self):
           return '<id {}>'.format(self.id)
@@ -75,8 +79,8 @@ class Passenger(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String())
-    age = db.Column(db.String())
-    weight = db.Column(db.String())
+    age = db.Column(db.Integer())
+    weight = db.Column(db.Float())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'),
         nullable=False) 
     
