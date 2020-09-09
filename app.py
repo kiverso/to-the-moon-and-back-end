@@ -1,17 +1,19 @@
-import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+import os
 
-app = Flask(__name__)
-app.config.from_object(os.environ['APP_SETTINGS'])
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+current_app = Flask(__name__)
+current_app.config.from_object(os.environ['APP_SETTINGS'])
 
-from models import Result
+current_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(current_app)
 
-@app.route('/')
+from models import CelestialBodies, Landmark, User, Passenger
+
+@current_app.route('/')
 def hello():
     return "App is running"
 
 if __name__ == '__main__':
-    app.run()
+    current_app.run()
+
