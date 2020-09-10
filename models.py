@@ -3,7 +3,7 @@ from sqlalchemy.dialects.postgresql import JSON
 
 
 voyages = db.Table('voyages',
-      db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
+      db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
       db.Column('celestial_bodies_id', db.Integer, db.ForeignKey('celestial_bodies.id'), primary_key=True)
 )
 
@@ -46,7 +46,7 @@ class CelestialBodies(db.Model):
 
 
 class Landmark(db.Model):
-    __tablename__ = 'landmark'
+    __tablename__ = 'landmarks'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String())
@@ -67,7 +67,7 @@ class Landmark(db.Model):
           return '<id {}>'.format(self.id)
 
 class User(db.Model): 
-    __tablename__ = 'user'
+    __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.String())
@@ -92,7 +92,7 @@ class Passenger(db.Model):
     name = db.Column(db.String())
     age = db.Column(db.Integer())
     weight = db.Column(db.Float())
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'),
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'),
         nullable=False) 
     
 
