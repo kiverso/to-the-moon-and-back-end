@@ -19,7 +19,7 @@ class CelestialBodies(db.Model):
     planet_day = db.Column(db.Float())
     planet_year = db.Column(db.Float())
     landmark = db.relationship('Landmark', backref='celestial_bodies', lazy=True)
-    user = db.relationship('User', secondary=voyages, back_populates='user')
+    user = db.relationship('User', secondary=voyages, back_populates='celestial_bodies')
 
 
     def __init__(self, name, image, celestial_body_type, gravity, planet_day, planet_year):
@@ -32,6 +32,17 @@ class CelestialBodies(db.Model):
 
     def __repr__(self):
           return '<id {}>'.format(self.id)
+
+    def serialize(self):
+      return {
+        'id': self.id,
+        'name': self.name,
+        'image': self.image,
+        'celestial_body_type': self.celestial_body_type,
+        'gravity': self.gravity,
+        'planet_day': self.planet_day,
+        'planet_year': self.planet_year
+      }
 
 
 class Landmark(db.Model):
@@ -63,7 +74,7 @@ class User(db.Model):
     email = db.Column(db.String(), unique=True)
     password_digest = db.Column(db.String())
     passenger = db.relationship('Passenger', backref='passengers', lazy=True)
-    celestial_bodies = db.relationship('CelestialBodies', secondary=voyages, back_populates='celestial_bodies')
+    celestial_bodies = db.relationship('CelestialBodies', secondary=voyages, back_populates='user')
 
 
     def __init__(self, user_name, email, password_digest):
