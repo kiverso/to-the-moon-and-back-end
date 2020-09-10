@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import os
+import requests
 
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
@@ -22,8 +23,17 @@ def get_all():
     except Exception as e:
         return(str(e))
 
+@app.route('/api/v1/news', methods = ['GET'])
+def get_api():
+    try: 
+        response = requests.get('https://spaceflightnewsapi.net/api/v1/articles')
+        return response.json()
+    except Exception as response:
+        return(str("Bad Request"))
+
+
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 
 @app.cli.command('db_seed')
 def db_seed():
