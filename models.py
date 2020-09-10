@@ -3,7 +3,7 @@ from sqlalchemy.dialects.postgresql import JSON
 
 
 voyages = db.Table('voyages',
-      db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
+      db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
       db.Column('celestial_bodies_id', db.Integer, db.ForeignKey('celestial_bodies.id'), primary_key=True)
 )
 
@@ -19,7 +19,7 @@ class CelestialBodies(db.Model):
     planet_day = db.Column(db.Float())
     planet_year = db.Column(db.Float())
     landmark = db.relationship('Landmark', backref='celestial_bodies', lazy=True)
-    user = db.relationship('User', secondary=voyages, back_populates='user')
+    user = db.relationship('User', secondary=voyages, back_populates='celestial_bodies')
 
 
     def __init__(self, name, image, celestial_body_type, gravity, planet_day, planet_year):
@@ -33,9 +33,20 @@ class CelestialBodies(db.Model):
     def __repr__(self):
           return '<id {}>'.format(self.id)
 
+    def serialize(self):
+      return {
+        'id': self.id,
+        'name': self.name,
+        'image': self.image,
+        'celestial_body_type': self.celestial_body_type,
+        'gravity': self.gravity,
+        'planet_day': self.planet_day,
+        'planet_year': self.planet_year
+      }
+
 
 class Landmark(db.Model):
-    __tablename__ = 'landmark'
+    __tablename__ = 'landmarks'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String())
@@ -56,14 +67,14 @@ class Landmark(db.Model):
           return '<id {}>'.format(self.id)
 
 class User(db.Model): 
-    __tablename__ = 'user'
+    __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.String())
     email = db.Column(db.String(), unique=True)
     password_digest = db.Column(db.String())
     passenger = db.relationship('Passenger', backref='passengers', lazy=True)
-    celestial_bodies = db.relationship('CelestialBodies', secondary=voyages, back_populates='celestial_bodies')
+    celestial_bodies = db.relationship('CelestialBodies', secondary=voyages, back_populates='user')
 
 
     def __init__(self, user_name, email, password_digest):
@@ -81,7 +92,7 @@ class Passenger(db.Model):
     name = db.Column(db.String())
     age = db.Column(db.Integer())
     weight = db.Column(db.Float())
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'),
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'),
         nullable=False) 
     
 
