@@ -44,7 +44,7 @@ def db_seed():
     mars = CelestialBodies(name='Mars',
                      image='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSY5oCXASYgKXI1MFGmRbgs9WmSnULsnOe_fg&usqp=CAU',
                      celestial_body_type='Planet',
-                     gravity=0.38
+                     gravity=0.38,
                      planet_day=1.02,
                      planet_year=686.98)
 
