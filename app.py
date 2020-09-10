@@ -81,14 +81,14 @@ def db_seed():
                      celestial_body_type='Moon',
                      gravity=0.16,
                      planet_day=27.32,
-                     planet_year=null)
+                     planet_year=None)
 
     sun = CelestialBodies(name='Sun',
                      image='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRkKZ8nFulIMZAK8MKI8kzvsfGnaa3YlqMMRA&usqp=CAU',
                      celestial_body_type='Star',
                      gravity=27.95,
                      planet_day=25.38,
-                     planet_year=null)
+                     planet_year=None)
 
     db.session.add(mercury)
     db.session.add(venus)
