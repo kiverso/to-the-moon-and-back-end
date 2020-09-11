@@ -33,7 +33,7 @@ def get_api():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
 
 @app.cli.command('db_seed')
 def db_seed():
