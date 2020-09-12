@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import os
+import requests
 
 
 app = Flask(__name__)
@@ -22,6 +23,15 @@ def get_all():
         return jsonify({'data': [e.serialize() for e in bodies]})
     except Exception as e:
         return(str(e))
+
+@app.route('/api/v1/news', methods = ['GET'])
+def get_api():
+    try: 
+        response = requests.get('https://spaceflightnewsapi.net/api/v1/articles')
+        return response.json()
+    except Exception as response:
+        return(str("Bad Request"))
+
 
 if __name__ == '__main__':
     app.run()
