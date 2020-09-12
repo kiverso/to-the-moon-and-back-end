@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import os
 
+
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
 
@@ -101,4 +102,3 @@ def db_seed():
     db.session.add(sun)
     db.session.commit()
     print('Database seeded!')
-
