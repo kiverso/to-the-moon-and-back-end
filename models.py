@@ -1,5 +1,7 @@
 from app import db
 from sqlalchemy.dialects.postgresql import JSON
+import solarsystem
+import datetime
 
 voyages = db.Table('voyages',
       db.Column('user_id', db.Integer, db.ForeignKey('users.id'),
@@ -43,8 +45,30 @@ class CelestialBodies(db.Model):
         'celestial_body_type': self.celestial_body_type,
         'gravity': self.gravity,
         'planet_day': self.planet_day,
-        'planet_year': self.planet_year
+        'planet_year': self.planet_year,
+        'travel': self.travel_time()
       }
+
+    def travel_time(self):
+      miles_per_au = 92955807 # Number of miles in one astronomical unit
+      ship_speed = 24816 #Ship speed equal to maximum speed for manned spaceflight
+
+      if self.name == 'Moon':
+        moon_distance = 238900
+        return {'distance': moon_distance, 'travel_time': moon_distance / ship_speed}
+      now    = datetime.datetime.utcnow()
+      now    = datetime.datetime.now(datetime.timezone.utc)
+      year   = now.year
+      month  = now.month
+      day    = now.day
+      hour   = now.hour
+      minute = now.minute
+
+      planets = solarsystem.Geocentric(year=year, month=month, day=day, hour=hour, minute=minute ).position()
+      distance_au = planets[self.name][2]
+      distance_miles = distance_au * miles_per_au
+      travel_time = distance_miles / ship_speed
+      return {'distance': distance_miles, 'travel_time': travel_time}
 
 class Landmark(db.Model):
     __tablename__ = 'landmarks'
