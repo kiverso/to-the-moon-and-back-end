@@ -48,8 +48,12 @@ class CelestialBodies(db.Model):
       }
 
     def travel_time(self):
+      miles_per_au = 92955807 # Number of miles in one astronomical unit
+      ship_speed = 24816 #Ship speed equal to maximum speed for manned spaceflight
+
       if self.name == 'Moon':
-        return {'distance': 'test', 'travel_time': 'test'}
+        moon_distance = 238900
+        return {'distance': moon_distance, 'travel_time': moon_distance / ship_speed}
       now    = datetime.datetime.utcnow()
       now    = datetime.datetime.now(datetime.timezone.utc)
       year   = now.year
@@ -58,14 +62,10 @@ class CelestialBodies(db.Model):
       hour   = now.hour
       minute = now.minute
 
-      miles_per_au = 92955807 # Number of miles in one astronomical unit
-      ship_speed = 24816 #Ship speed equal to maximum speed for manned spaceflight
-
       planets = solarsystem.Geocentric(year=year, month=month, day=day, hour=hour, minute=minute ).position()
       distance_au = planets[self.name][2]
       distance_miles = distance_au * miles_per_au
       travel_time = distance_miles / ship_speed
-
       return {'distance': distance_miles, 'travel_time': travel_time}
 
 class Landmark(db.Model):
