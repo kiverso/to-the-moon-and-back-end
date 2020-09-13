@@ -15,10 +15,26 @@ def hello():
     return "App is running"
 
 @app.route('/api/v1/celestial_bodies', methods = ['GET'])
-def get_all():
+def get_bodies():
     try:
         bodies = CelestialBodies.query.all()
         return jsonify({'data': [e.serialize() for e in bodies]})
+    except Exception as e:
+        return(str(e))
+
+@app.route('/api/v1/celestial_bodies/<id>/landmarks', methods = ['GET'])
+def get_landmarks(id):
+    try:
+        landmarks = Landmarks.query.filter(Landmarks.celestial_body_id == id)
+        return jsonify({'data': [e.serialize() for e in landmarks]})
+    except Exception as e:
+        return(str(e))
+
+@app.route('/api/v1/celestial_bodies/<body_id>/landmarks/<id>', methods = ['GET'])
+def get_landmark(id):
+    try:
+        landmark = Landmarks.query.get(id)
+        return jsonify(landmark.serialize())
     except Exception as e:
         return(str(e))
 
@@ -101,4 +117,3 @@ def db_seed():
     db.session.add(sun)
     db.session.commit()
     print('Database seeded!')
-
