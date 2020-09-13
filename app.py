@@ -23,6 +23,14 @@ def get_all():
     except Exception as e:
         return(str(e))
 
+@app.route('/api/v1/celestial_bodies/<id>', methods = ['GET'])
+def get_one_body(id):
+    try:
+        celestial_body = CelestialBodies.query.get(id)
+        return jsonify(celestial_body.serialize())
+    except Exception as e:
+        return(str(e))
+
 @app.route('/api/v1/news', methods = ['GET'])
 def get_api():
     try: 
