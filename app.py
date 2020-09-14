@@ -162,7 +162,7 @@ def seed_landmark():
 
     sunspots = Landmark(name="Sunspots",
                         image="https://upload.wikimedia.org/wikipedia/commons/6/67/Sunspots_1302_Sep_2011_by_NASA.jpg",
-                        landmark_type="Atmosphere",
+                        landmark_type="Surface",
                         description="Sun spots happen when fluctuations in the sun cause areas of the surface to be not as hot as their surroundings, causing that area to look darker than the rest of the sun. Despite only appearing as spots, they can grow to a size several times our own planet's! They can last anywhere from a few days to a few months, and tend to increase and decrease in frequency based off of eleven-year cycles.",
                         celestial_body_id=9)
 
@@ -172,10 +172,80 @@ def seed_landmark():
                            description="Solar flares are bright flashes caused by increased activity from the sun, in conjunction with a coronal mass ejection - an intense wave of energized particles that erupt from the sun and fly out into the solar system. While they are relatively common, they can cause electrical problems should the Earth be in the path of a flare, thanks to the disturbances they can cause in the atmosphere.",
                            celestial_body_id=9)
 
+    apollodorus = Landmark(name="Apollodorus",
+                           image="https://www.nasa.gov/sites/default/files/thumbnails/image/messenger-12-apollodorus_pantheon_2015_0.png",
+                           landmark_type="Crater",
+                           description="This crater, located within the Pantheon Fossae, is remarkable because of the long troughs that radiate out from the center. When first discovered, it was nicknamed the Spider because of the web like shape. It is still uncertain if the impact caused them, or whether the asteroid that caused the crater merely landed in the center of a pre-existing formation.",
+                           celestial_body_id=1)
+
+    caloris = Landmark(name="Caloris Basin",
+                       image="https://cdn.britannica.com/75/145475-050-916827A9/Caloris-Basin-Mercury-spacecraft-Messenger-2008.jpg",
+                       landmark_type="Crater",
+                       description="The Caloris basin is one of the largest impact craters in the Solar System, measuring at over 900 miles wide. The asteroid that created the impact was likely at least 60 miles wide, larger than the one theorized to have caused the dinosaurs' extinction. The impact was so violent that it caused deformations in the terrain on the exact opposite side of the planet (the antipode).",
+                       celestial_body_id=1)
+
+    mercury_pole = Landmark(name="Poles",
+                            image="https://api.hub.jhu.edu/factory/sites/default/files/styles/hub_medium/public/mercury_ice.jpg?itok=1baACeWG",
+                            landmark_type="Surface",
+                            description="Despite being the planet closest to the sun, Mercury can get quite cold. At the poles of the planet, hidden perpetually from the sun in the shadows of craters, there's ample evidence that there is large amounts of ice lying frozen. Though a fraction of what exists on Earth's polar regions, it is still enough to be at least a couple miles deep.",
+                            celestial_body_id=1)
+
+    debussy = Landmark(name="Debussy",
+                       image="https://live.staticflickr.com/6170/6176086738_3a98b804a4_b.jpg",
+                       landmark_type="Crater",
+                       description="Named after the French composer, this crater, along with a similar one named Hakusai, are prominent enough to be detected from Earth using radio telescopes. It has a very noticeable ray pattern stretching out from the impact center, which indicates that it's relatively new. It was one of the first things photographed by the MESSENGER probe, sent to orbit the planet from 2011 to 2015.",
+                       celestial_body_id=1)
+
+    tolstoj = Landmark(name="Tolstoj",
+                       image="https://upload.wikimedia.org/wikipedia/commons/b/b1/Tolstoj_crater_EW0227961993G.jpg",
+                       landmark_type="Crater",
+                       description="The Tolstoj crater is notable for its well-preserved ejecta blanket and the reflective material that has settled into the crater plain, leaving it an easy to spot bright patch on the planet's surface. It is one of the oldest craters on Mercury, being estimated to be nearly 4 billion years old.",
+                       celestial_body_id=1)
+
+    venus_atmo = Landmark(name="Atmosphere",
+                          image="https://cdn.mos.cms.futurecdn.net/B8WfkaJZWrsms27RGsTu63.jpg",
+                          landmark_type="Atmosphere",
+                          description="The thick atmosphere of Venus means despite being further away from the sun than Mercury, it's actually the hottest planet in the system with a surface temperature of 870 degrees Fahrenheit. It's caused by a runaway greenhouse effect - since it's made of nearly 96% carbon dioxide. The atmosphere is also so dense that the pressure is 90 times that of Earth. Oh, and the clouds and rain are made of sulfuric acid.",
+                          celestial_body_id=2)
+
+    terra = Landmark(name="Terra",
+                     image="https://media.sciencephoto.com/r3/34/00/21/r3340021-800px-wm.jpg",
+                     landmark_type="Surface",
+                     description="While there are no oceans on Venus - water is incompatible with such harsh conditions - areas of highland terrain that rise up above the volcanic plains make up the rough landmasses of Venus. These are known as terra, and there are three - the two major ones, Aphrodite Terra (around the size of South America) and Ishtar Terra (somewhere between the continental US and Australia), as well as a smaller one, Lada Terra, at Venus's south pole.",
+                     celestial_body_id=2)
+
+    regio = Landmark(name="Regio",
+                     image="https://p0.pikist.com/photos/78/602/venus-planet-surface-space-solar-system-alpha-regio.jpg",
+                     landmark_type="Surface",
+                     description="Regio are large plateaus that rise above Venus's surface. They are composed of some of the most intriguing tectonic features of Venus, such as the highly deformed tesserae terrain in the Alpha Regio, or the large Devana Chasma rift zone that cuts through the Beta Regio. These were some of the first regions of the surface to be detected by radar, as the cloud cover made telescopic observation impossible.",
+                     celestial_body_id=2)
+
+    maxwell = Landmark(name="Maxwell Montes",
+                       image="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Maxwell_Montes_of_planet_Venus.jpg/1280px-Maxwell_Montes_of_planet_Venus.jpg",
+                       landmark_type="Mountain",
+                       description="Maxwell Montes is the highest mountain on Venus, standing at about 35,000 feet tall. Rising from the Ishtar Terra on the northern half of the planet, the mountain is one of just three features not named after women or ancient goddesses on the entire surface of the planet, having been grandfathered in before the International Astronomical Union made the decision on nomenclature for further discoveries.",
+                       celestial_body_id=2)
+
+    maat = Landmark(name="Maat Mons",
+                    image="https://media.pixcove.com/F/8/2/Maat-Mons-Planet-Venus-Surface-Free-Image-Space-So-6947.jpg",
+                    landmark_type="Mountain",
+                    description="Named for the Egyptian goddess of truth, Maat Mons is the largest volcano on Venus and the second highest on the planet. Venus is the most volcanically active planet in the entire solar system, with over 1600 major volcanoes across the surface. Indeed, there's evidence that the entire planet is periodically resurfaced in floods of lava.",
+                    celestial_body_id=2)
+
     db.session.add(solar_core)
     db.session.add(photosphere)
     db.session.add(corona)
     db.session.add(sunspots)
     db.session.add(solar_flare)
+    db.session.add(apollodorus)
+    db.session.add(caloris)
+    db.session.add(mercury_pole)
+    db.session.add(debussy)
+    db.session.add(tolstoj)
+    db.session.add(venus_atmo)
+    db.session.add(terra)
+    db.session.add(regio)
+    db.session.add(maxwell)
+    db.session.add(maat)
     db.session.commit()
     print('Landmarks seeded!')
