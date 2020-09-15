@@ -11,7 +11,6 @@ before_script:
   - psql -c 'create database moon_back_test;' -U postgres
 # Set environment variables
 env:
-  - APP_SETTINGS="config.DevelopmentConfig"
-  - DATABASE_URL="postgresql:///moon_back"
+  - APP_SETTINGS=config.DevelopmentConfig DATABASE_URL=postgresql:///moon_back
 # command to run tests
 script: python manage.py test
