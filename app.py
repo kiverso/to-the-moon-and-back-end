@@ -181,7 +181,7 @@ def seed_landmark():
 
     mercury_pole = Landmark(name="Poles",
                             image="https://api.hub.jhu.edu/factory/sites/default/files/styles/hub_medium/public/mercury_ice.jpg?itok=1baACeWG",
-                            landmark_type="Surface",
+                            landmark_type="Structure",
                             description="Despite being the planet closest to the sun, Mercury can get quite cold. At the poles of the planet, hidden perpetually from the sun in the shadows of craters, there's ample evidence that there is large amounts of ice lying frozen. Though a fraction of what exists on Earth's polar regions, it is still enough to be at least a couple miles deep.",
                             celestial_body_id=1)
 
@@ -227,6 +227,66 @@ def seed_landmark():
                     description="Named for the Egyptian goddess of truth, Maat Mons is the largest volcano on Venus and the second highest on the planet. Venus is the most volcanically active planet in the entire solar system, with over 1600 major volcanoes across the surface. Indeed, there's evidence that the entire planet is periodically resurfaced in floods of lava.",
                     celestial_body_id=2)
 
+    sea_tranquility = Landmark(name="Sea of Tranquility",
+                               image="https://ca-times.brightspotcdn.com/dims4/default/df8dc29/2147483647/strip/true/crop/600x338+0+31/resize/1200x675!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F69%2Fd5%2Ffb72584f2cbca5a528892bcfa45c%2F11-apollo-fevbd1gy",
+                               landmark_type="Surface",
+                               description="Mare, or seas, are dark features most common on the near side of the moon - where volcanic eruptions have covered these regions in basalt, which reflects less of the sun's light. Generally wide and flat, the most famous of these is the Sea of Tranquility, where on July 20, 1969, Apollo 11 became the first manned lunar landing.",
+                               celestial_body_id=8)
+
+    tycho = Landmark(name="Tycho",
+                     image="https://skyandtelescope.org/wp-content/uploads/Tycho-closeup-at-full-Frank-Barrett.jpg",
+                     landmark_type="Crater",
+                     description="Perhaps the most notable crater on the near side of the moon thanks to its distinctive rays that spread out across the southern side. It is a relatively young crater by the standards of the moon, having impacted roughly 108 million years ago, which means unlike other prominent craters, it has yet to be malformed by further impacts.",
+                     celestial_body_id=8)
+
+    aitken = Landmark(name="Aitken Basin",
+                      image="https://i.insider.com/5cfeb3856fc920079c630e49?width=1100&format=jpeg&auto=webp",
+                      landmark_type="Crater",
+                      description="The largest impact crater on the moon, and one of the largest in the entire solar system is located on the South Pole, creating the South Pole-Aitken Basin. Mostly visible from the far side of the moon, the crater is 1600 miles wide, and 4 to 5 miles deep. On the near side visible from Earth, only the outer ring of the basin, known as the Leibnitz mountains, can be seen.",
+                      celestial_body_id=8)
+
+    oceanus = Landmark(name="Oceanus Procellarum",
+                       image="https://upload.wikimedia.org/wikipedia/commons/1/19/Oceanus_Procellarum_%28LRO%29.png",
+                       landmark_type="Surface",
+                       description="Of all the dark spots that splotch the near side of the moon, only Procellarum, the largest by some stretch, was given the title Oceanus - or ocean, in comparison to the mare, or seas, that are defined elsewhere. It covers 10% of the entire lunar surface, and has been visited by a series of probes - the Soviet Luna 9 and 13, and the American Surveyor 1 and 3. Apollo 12 would land close to the Surveyor 3 site, returning parts of the probe home with them, the only time this was ever done.",
+                       celestial_body_id=8)
+
+    orientale = Landmark(name="Mare Orientale",
+                         image="https://apod.nasa.gov/apod/image/1103/orientale_lro_crop800.jpg",
+                         landmark_type="Crater",
+                         description="Though the name means Eastern Sea, it is so called because it appears on the east from Earth - it is actually on the west side of the moon. Though difficult to see because it lies on the boundary of what is visible, satellite imagery in the 1960s revealed it to have a striking set of concentric circles, making almost a target bullseye on the moon. The inner ring of mountains is known as the Montes Rook, while the outer ring are known as the Montes Cordillera.",
+                         celestial_body_id=8)
+
+    olympus = Landmark(name="Olympus Mons",
+                          image="https://cdn.mos.cms.futurecdn.net/XNRcoHujh5mZHmPQZzYbgH.jpg",
+                          landmark_type="Mountain",
+                          description="The largest mountain on any planet in the solar system, the volcano Olympus Mons towers over the Martian surface, rising 85,000 feet from the surrounding terrain. It is, in fact, so tall that it almost rises above the Martian atmosphere, close to sticking out all the way into space. At two and a half times the size of Mount Everest, were it to be placed in the deepest part of the Pacific Ocean, it would still rise higher than most commercial jetliners fly.",
+                          celestial_body_id=3)
+
+    marineris = Landmark(name="Valles Marineris",
+                         image="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/VallesMarinerisHuge.jpg/800px-VallesMarinerisHuge.jpg",
+                         landmark_type="Surface",
+                         description="The Valles Marineris is a noticeable scar on the Martian surface, a canyon that would dwarf the Earth's Grand Canyon, at four times the depth, a dozen times the length and over ten times the Grand Canyon's maximum width. The most likely reason for its formation is a tectonic crack in the planet's surface, widened over time via erosion and collapses of the rift walls.",
+                         celestial_body_id=3)
+
+    borealis = Landmark(name="Borealis Basin",
+                        image="https://scx2.b-cdn.net/gfx/news/2017/swriledteamd.jpg",
+                        landmark_type="Structure",
+                        description="Most of the north of Mars lies in a very wide basin that covers 40% of the entire planet. The basin is considerably smoother than the rest of the planet's surface and is mostly flat, though the volcanic Tharsis Bulge rises above it in the planet's western hemisphere. Speculation abounds as to why the north and south of the planet are so different - whether it be a large asteroid impact (if so, the basin would be the largest crater in the Solar System by a fourfold margin) or perhaps a vast ocean in Mars' distant past.",
+                        celestial_body_id=3)
+
+    hellas = Landmark(name="Hellas Planitia",
+                      image="https://upload.wikimedia.org/wikipedia/commons/2/21/Hellas_Planitia_by_the_Viking_orbiters.jpg",
+                      landmark_type="Crater",
+                      description="This crater impact site is not quite the largest on Mars, but is noticeable for being incredibly deep - over thirty thousand feet lower than the surrounding terrain. The crater is so deep that it causes changes to the Martian atmosphere, and the air pressure at the bottom of the crater is double what it is elsewhere on the Martian surface. In fact, it's one of the few places on Mars that has sufficient pressure to sustain liquid water, were the temperature to stay warm enough.",
+                      celestial_body_id=3)
+
+    phobos_deimos = Landmark(name="Phobos and Deimos",
+                             image="https://mars.nasa.gov/system/content_pages/main_images/65_moons.jpg",
+                             landmark_type="Moon",
+                             description="The two moons of Mars are tiny - Phobos is less than 15 miles long, with Deimos being less than 10. They are still visible from the Martian surface, however, thanks to orbiting much closer to the planet. They are named after twin sons of the Greek god Ares, who is the analogue to the Roman god Mars. Though it is not known for certain, the most likely scenario is that Mars captured these moons from the asteroid belt.",
+                             celestial_body_id=3)
+
     db.session.add(solar_core)
     db.session.add(photosphere)
     db.session.add(corona)
@@ -242,5 +302,14 @@ def seed_landmark():
     db.session.add(regio)
     db.session.add(maxwell)
     db.session.add(maat)
+    db.session.add(sea_tranquility)
+    db.session.add(tycho)
+    db.session.add(oceanus)
+    db.session.add(orientale)
+    db.session.add(olympus)
+    db.session.add(marineris)
+    db.session.add(borealis)
+    db.session.add(hellas)
+    db.session.add(phobos_deimos)
     db.session.commit()
     print('Landmarks seeded!')
